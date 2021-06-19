@@ -6,8 +6,13 @@ router.get('/',(req,res,next)=>{
     });
 });
 router.post('/',(req,res,next)=>{
-    res.status(200).json({
-        message:'Haldling post req'
+    const product ={
+        name : req.body.name,
+        price : req.body.price
+    };
+    res.status(201).json({
+        message:'Haldling post req',
+        product:product
     });
 });
 router.get('/:productId',(req,res,next)=>{

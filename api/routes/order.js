@@ -7,8 +7,13 @@ router.get('/',(req,res,next)=>{
     });
 });
 router.post('/',(req,res,next)=>{
-    res.status(200).json({
-        message:'Haldling order post req'
+    const order ={
+        productId : req.body.productId,
+        quantity : req.body.quantity
+    };
+    res.status(201).json({
+        message:'Haldling order post req',
+        order : order
     });
 });
 router.patch('/:orderId',(req,res,next)=>{
