@@ -2,10 +2,19 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
 
 const productRoutes = require('./api/routes/product');
 const orderRoutes = require('./api/routes/product');
 
+mongoose.connect('mongodb+srv://node-api-example:'+process.env.MONGO_ATLAS_PW + '@node-api-example.hc1oi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
+    useNewUrlParser:true,
+    useUnifiedTopology: true
+    // useMongoClient : true
+})
+.then(() => console.log('Now working fine'))
+.catch(err =>console.log(err));
 
 
 //nodemon is for auto server
